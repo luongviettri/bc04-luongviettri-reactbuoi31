@@ -4,18 +4,27 @@ export default class Glasses extends Component {
         let { handleChangeGlass, data } = this.props;
 
         return data.map(({ url }, index) => {
-            return <img
-                key={index.toString()}
-                height={80} className='col-2 m-3 border border-dark rounded p-1 btn' src={url} alt=""
-                onClick={() => {
-                    handleChangeGlass(index);
-                }}
-            />
+            return (
+                <div key={index.toString()}
+                    className="col-2 my-3"
+                >
+                    <img
+
+                        className='border border-dark rounded p-1 btn w-100' src={url} alt=""
+                        onClick={() => {
+                            handleChangeGlass(index);
+                        }}
+                    />
+                </div>
+            )
         })
     }
     render() {
         return (
-            <div className='row bg-light p-5 justify-content-center'
+            <div className='row bg-light p-5 '
+                style={{
+                    boxSizing: "border-box"
+                }}
             >
                 {this.renderGlasses()}
             </div>
